@@ -4,7 +4,7 @@ describe('Login Valid dengan Username dan Password', () => {
       cy.visit('http://blogcompany.test/admin/login'); // Ganti URL dengan halaman login aplikasi Anda
     });
   
-    it.skip('Login berhasil dengan kredensial yang valid', () => {
+    it.only('Login berhasil dengan kredensial yang valid', () => {
       // Input username dan password
       cy.get('input[name="email"]').type('admintesting@admin.com');
       cy.get('input[name="password"]').type('password12');
@@ -17,7 +17,7 @@ describe('Login Valid dengan Username dan Password', () => {
       cy.contains('Selamat, Anda berhasil Login').should('be.visible'); // Pastikan pesan selamat datang muncul
     });
 
-    it.skip('Login tidak berhasil karena username ada yang salah', () => {
+    it('Login tidak berhasil karena username ada yang salah', () => {
         // Input username dan password
         cy.get('input[name="email"]').type('admin@gmail.com');
         cy.get('input[name="password"]').type('password12');
@@ -28,7 +28,7 @@ describe('Login Valid dengan Username dan Password', () => {
         cy.contains('Email ada yang salah').should('be.visible');
     });
     
-    it.skip('Login tidak berhasil karena password ada yang salah', () => {
+    it('Login tidak berhasil karena password ada yang salah', () => {
         // Input username dan password
         cy.get('input[name="email"]').type('admintesting@admin.com');
         cy.get('input[name="password"]').type('password_salah');
@@ -38,7 +38,7 @@ describe('Login Valid dengan Username dan Password', () => {
         cy.contains('password nya ada yang salah').should('be.visible');
     });
 
-    it.skip('Login tidak berhasil karena username dan password salah', () => {
+    it('Login tidak berhasil karena username dan password salah', () => {
         // Input username dan password
         cy.get('input[name="email"]').type('admin@gmail.com');
         cy.get('input[name="password"]').type('password_salah');
@@ -50,7 +50,7 @@ describe('Login Valid dengan Username dan Password', () => {
         cy.contains('Email ada yang salah').should('be.visible');
     });
 
-    it.skip('Login Invalid Mengosongkan field email dan password', () => {
+    it('Login Invalid Mengosongkan field email dan password', () => {
         // Input username dan password
         cy.get('input[name="email"]').focus().blur();
         cy.get('input[name="password"]').focus().blur();
